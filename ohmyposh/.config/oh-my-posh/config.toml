@@ -16,6 +16,16 @@ final_space = true
   newline = true
 
     [[blocks.segments]]
+        type = "text"
+        style = "plain"
+        background = "transparent"
+        foreground_templates = [
+            "{{if gt .Code 0}}p:bright_red{{end}}",
+        ]
+        foreground = "p:green"
+        template = "┌ "
+
+    [[blocks.segments]]
         type = "path"
         style = "plain"
         background = "transparent"
@@ -25,15 +35,32 @@ final_space = true
         [blocks.segments.properties]
         style = "agnoster_full"
         home_icon = "󱂵" 
+    [[blocks.segments]]
+        type = "status"
+        style = "diamond"
+        foreground = "p:blue"
+        foreground_templates = ["{{ if gt .Code 0}}p:red{{end}}"]
 
 [[blocks]]
     type = "prompt"
     alignment = "right"
 
     [[blocks.segments]]
+        type = "executiontime"
+        style = "plain"
+        foreground = "p:blue"
+        [blocks.segments.properties]
+            always_enabled = true
+    [[blocks.segments]]
+        type = "os"
+        foreground = "#1793D1"
+    [[blocks.segments]]
         type = "git"
+        style = "plain"
+        foreground = "p:blue"
         fetch_status = true
         fetch_upstream_icon = true
+        branch_icon = "\uE5FB"
 
 [[blocks]]
   type = "prompt"
@@ -47,7 +74,8 @@ final_space = true
         ]
         foreground = "p:green"
         background = "transparent"
-        template = ""
+        template = "└─►"
+
 
 
 

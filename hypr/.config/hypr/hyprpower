@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Options for the menu
+options="Shutdown\nReboot\nLogout\nSuspend\nLock"
+
+# Get user choice
+choice=$(echo -e $options | wofi --dmenu --prompt "Power Menu" --width 300 --height 200)
+
+# Perform the chosen action
+case $choice in
+    Shutdown)
+        systemctl poweroff
+        ;;
+    Reboot)
+        systemctl reboot
+        ;;
+    Logout)
+        pkill Hyprland
+        ;;
+    Suspend)
+        systemctl suspend
+        ;;
+    Lock)
+        swaylock # Or any other lock utility you use
+        ;;
+    *)
+        echo "No valid option selected" ;;
+esac

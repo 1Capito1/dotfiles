@@ -1,0 +1,69 @@
+/* Tokyo Night Storm Color Palette */
+* {
+    border: none;
+    border-radius: 10px;
+    font-family: JetBrains Mono Nerd Font;
+    font-size: 13px;
+    background-color: rgba(23, 147, 209, 0.2);
+    color: #c0caf5;
+    background: transparent;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+    padding-bottom: 2px;
+}
+
+#clock,
+#wireplumber,
+#workspaces,
+#custom-spotify,
+#custom-launcher,
+#network,
+#custom-pacman,
+#cpu, #memory, #disk {
+    background-color: rgba(23, 147, 209, 0.2);
+    color: #c0caf5;
+    border-bottom: 3px solid #00FFFF;
+}
+
+#network, #cpu, #wireplumber, #memory, #disk, #custom-pacman {
+    padding-left: 12px;
+    padding-right: 14px;
+    background-color: rgba(23, 147, 209, 0.2);
+}
+
+#network, #clock {
+    padding-left: 14px;
+    padding-right: 14px;
+}
+
+#custom-spotify {
+    padding-left: 22px;
+    padding-right: 22px;
+}
+
+#custom-launcher {
+    padding-left: 10px;
+    padding-right: 12px;
+}
+
+#workspaces button.active {
+    color: #c0caf5;
+}
+#workspaces button:hover {
+    border: none;
+    background: rgba(122, 162, 247, 0.3);
+}
+#workspaces button:hover {
+    background: transparent;
+    box-shadow: none;
+    border: none;
+}
+
+/* Tooltip Styling */
+tooltip {
+  background: rgba(23, 147, 209, 0.3);
+  border: 1px solid rgba(100, 114, 125, 0.5);
+  padding: 6px 10px;
+  border-radius: 8px;
+}

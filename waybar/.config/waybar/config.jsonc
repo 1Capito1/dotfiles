@@ -1,0 +1,85 @@
+{
+    "name": "bar",
+    "layer": "top",
+    "modules-left": [
+        "custom/launcher",
+        "cpu",
+        "memory",
+        "disk",
+        "hyprland/workspaces",
+        "hyprland/mode"
+    ],
+    "modules-center": ["custom/spotify"],
+    "modules-right": ["custom/pacman","wireplumber","network", "clock"],
+
+    "clock": {
+        "format-alt": "{:%a, %d. %b %H:%M}"
+    },
+
+    "hyprland/workspaces": {
+        "active-only": true,
+        "tooltip": false,
+    },
+    "custom/launcher": {
+        "format": "{}",
+        "tooltip": true,
+        "exec": "echo '{\"text\":\"󰣇\",\"tooltip\":\"Drun | Run\"}'",
+        "return-type": "json",
+        "on-click": "pkill wofi || wofi --show drun -n",
+        "on-click-right": "pkill wofi || wofi --show run -n",
+    },
+
+    "network": {
+        "interface": "wlan0",
+        "format": "{ifname}",
+        "format-wifi": "{essid} ",
+        "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+        "format-disconnected": "", //An empty format will hide the module.
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50
+    },
+
+    "custom/spotify": {
+        "exec": "/usr/bin/python3 ~/dotfiles/waybar/.config/waybar/custom-modules/mediaplayer.py",
+        "format": "{} ",
+        "return-type": "json",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
+    },
+    "cpu": {
+        "interval": 10,
+        "format": "{}% ",
+        "max-length": 10
+    },
+    "memory": {
+        "interval": 30,
+        "format": "{}% ",
+        "max-length": 10
+    },
+    "disk": {
+        "interval": 30,
+        "format": "{percentage_used}% 󰋊",
+        "path": "/"
+    },
+
+    "wireplumber": {
+        "format": "{volume}% {icon}",
+        "format-muted": "",
+        "on-click": "helvum",
+        "max-volume": 200,
+        "scroll-step": 0.2,
+        "format-icons": ["", "󰕾", ""],
+    },
+
+    "custom/pacman": {
+        "exec": "./custom-modules/pacman.sh",
+        "format": "{}",
+        "interval": 60,
+        "on-click": "bash -c 'echo Updating... && wezterm start -- bash -c \"yay -Syu; read -p \\\"Press Enter to close...\\\"\" && ./custom-modules/pacman.sh & disown'",
+    }
+}
+
