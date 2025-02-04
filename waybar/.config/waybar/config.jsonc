@@ -76,10 +76,10 @@
     },
 
     "custom/pacman": {
-        "exec": "./custom-modules/pacman.sh",
+        "exec": "~/dotfiles/waybar/.config/waybar/custom-modules/pacman.sh",
         "format": "{}",
         "interval": 60,
-        "on-click": "bash -c 'echo Updating... && wezterm start -- bash -c \"yay -Syu; read -p \\\"Press Enter to close...\\\"\" && ./custom-modules/pacman.sh & disown'",
+        "on-click": "bash -c 'echo Updating... && wezterm start -- bash -c \"yay -Syu; read -p \\\"Press Enter to close...\\\"\" && ~/dotfiles/waybar/.config/waybar/custom-modules/pacman.sh & disown'",
     }
 }
 
